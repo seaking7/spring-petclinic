@@ -37,10 +37,6 @@ import org.springframework.samples.petclinic.model.Person;
 /**
  * Simple JavaBean domain object representing an owner.
  *
- * @author Ken Krebs
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @author Michael Isvy
  */
 @Entity
 @Table(name = "owners")
@@ -61,6 +57,20 @@ public class Owner extends Person {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private Set<Pet> pets;
+
+	public void setPets(Set<Pet> pets) {
+		this.pets = pets;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	private Integer age;
 
 	public String getAddress() {
 		return this.address;
