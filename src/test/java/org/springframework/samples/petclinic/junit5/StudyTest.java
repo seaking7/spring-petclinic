@@ -9,9 +9,10 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StudyTest {
+	int value = 1;
 
 	//@Test 	@Tag("fast")
 	@Order(2)
@@ -27,7 +28,7 @@ class StudyTest {
 				new Study();
 				Thread.sleep(30);
 			});
-		System.out.println("create" );
+		System.out.println("create   value:" + value++ );
 	}
 
 	//@Test @Tag("slow")
@@ -35,7 +36,7 @@ class StudyTest {
 	@DisplayName("JUNIT테스트 이름바꾸기")
 	@SlowTest
 	void create_new_study_again(){
-		System.out.println("StudyTest.create1");
+		System.out.println("StudyTest.create1  value:"+value++);
 	}
 
 	@Order(4)
@@ -51,7 +52,7 @@ class StudyTest {
 	@ValueSource(strings = {"날씨가", "많이", "추워지고", "있네요"})
 	@NullAndEmptySource
 	void parameterTest(String message){
-		System.out.println("StudyTest.parameteriTest:" + message );
+		System.out.println("StudyTest.parameteriTest:" + message +"   value:"+ value++);
 	}
 
 
