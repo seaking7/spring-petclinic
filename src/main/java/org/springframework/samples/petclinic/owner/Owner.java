@@ -50,7 +50,7 @@ public class Owner extends Person {
 	@NotEmpty
 	private String city;
 
-	@Column(name = "telephone")
+	@Column(name = "telephone2")
 	@NotEmpty
 	@Digits(fraction = 0, integer = 10)
 	private String telephone;
